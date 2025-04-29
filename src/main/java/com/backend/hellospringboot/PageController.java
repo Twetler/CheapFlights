@@ -10,7 +10,7 @@ public class PageController{
     // Home Page Template
     @GetMapping("/home")
     public String home(Model model) {
-        model.addAttribute("name", "Túlio Wetler");
+        model.addAttribute("name", "Dear User");
         return "home";
     }
 }
