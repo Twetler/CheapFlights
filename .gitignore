@@ -22,4 +22,14 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
-/.idea/
+
+
+# Ignore IntelliJ IDEA settings
+.idea/
+
+# Ignore Maven target folder
+target/
+
+# Optional (MacOS system file if you're on Mac)
+.DS_Store
+
