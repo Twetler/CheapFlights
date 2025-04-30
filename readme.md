@@ -1,28 +1,13 @@
-# ✈️ Hello Spring Boot — Ryanair Backend Starter
+# ✈️ CheapFlights - Spring Boot Backend Thymeleaf Server
 
-A minimal Spring Boot project to kick off your airline backend idea!  
-This project serves dynamic HTML pages with Thymeleaf and handles basic routing — perfect for evolving into a full flight booking system.
+Welcome to **CheapFlights**, a minimal Spring Boot project designed to check for cheap flighs.
 
 ---
 
 ## 🚀 Features
 
-- Java 17 + Spring Boot 3
-- Thymeleaf template engine
-- Basic MVC architecture (Controller + View)
-- Ready to grow into a REST API or full airline backend
-- Maven for build & dependency management
-
-## ▶️ Getting Started
-
-### Prerequisites
-- Java 17+
-- Maven
-
-### Run the app
-
-```bash
-mvn spring-boot:run
-
-http://localhost:8080/home
-
+- **Java 17 + Spring Boot 3**: Modern and efficient backend framework.
+- **Thymeleaf Template Engine**: Dynamic HTML rendering for user-friendly web pages.
+- **Basic MVC Architecture**: Organized Controllers and Views for easier development.
+- **Scalable Design**: Easily extend to a REST API or a complete flight booking system.
+- **Maven-Driven**: Simple build and dependency management.
