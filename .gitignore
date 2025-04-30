@@ -33,3 +33,4 @@ target/
 # Optional (MacOS system file if you're on Mac)
 .DS_Store
 
+.vscode/*
