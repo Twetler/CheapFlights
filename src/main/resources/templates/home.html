@@ -35,14 +35,17 @@
 </nav>
 
 <!-- Origin And Destination Dropdown -->
-    <form class="mt-4">
+<div class="container mt-5">
+    <form method="get" action="/home" class="mt-4">
         <div class="row mb-3">
             <div class="col-md-6">
                 <label for="originSelect" class="form-label">Origin Airport</label>
+                <!-- Origin Dropdown -->
                 <select id="originSelect" name="origin" class="form-select">
                     <option th:each="airport : ${airports}"
                             th:value="${airport.code}"
-                            th:text="${airport.name + ' - ' + airport.code}">
+                            th:text="${airport.name + ' - ' + airport.code}"
+                            th:selected="${airport.code == origin}">
                         Airport Name
                     </option>
                 </select>
@@ -52,7 +55,8 @@
                 <select id="destinationSelect" name="destination" class="form-select">
                     <option th:each="airport : ${airports}"
                             th:value="${airport.code}"
-                            th:text="${airport.name + ' - ' + airport.code}">
+                            th:text="${airport.name + ' - ' + airport.code}"
+                            th:selected="${airport.code == destination}">
                         Airport Name
                     </option>
                 </select>
@@ -63,7 +67,13 @@
             <button type="submit" class="btn btn-primary">Search Flights</button>
         </div>
     </form>
+
+    <!-- Conditional result message -->
+    <div id="current-pick" th:if="${origin} != null and ${destination} != null" class="alert alert-info mt-4" style="display: block;">
+        <h5>Showing flights from <strong th:text="${origin}"></strong> to <strong th:text="${destination}"></strong></h5>
+    </div>
 </div>
+
 
 
 

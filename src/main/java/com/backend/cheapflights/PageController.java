@@ -6,12 +6,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.ui.Model;
 import org.springframework.web.client.RestTemplate;
 
+// Logging
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.backend.cheapflights.constants.ApiEndpoints;
 import com.backend.cheapflights.models.Airport;
 
 // Views templates
 @Controller
 public class PageController{
+
+    private static final Logger logger = LoggerFactory.getLogger(PageController.class);
 
     // Home Page Template
     @GetMapping("/home")
@@ -22,10 +28,22 @@ public class PageController{
 
             RestTemplate restTemplate = new RestTemplate();
             Airport[] airports = restTemplate.getForObject(ApiEndpoints.Airports.listAllUrl, Airport[].class);
+            
+            
+            
+            // BTN Search Flights
+            if (origin != null && destination != null) {
+                logger.info("Searching flights from " + origin + " to " + destination);
+                
+            }
+
             model.addAttribute("airports", airports);
+            model.addAttribute("origin", origin);
+            model.addAttribute("destination", destination);
+
             return "home";
 
 
-            
+
     }
 }
