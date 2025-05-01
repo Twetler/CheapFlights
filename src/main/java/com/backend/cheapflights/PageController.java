@@ -1,5 +1,7 @@
 package com.backend.cheapflights;
 
+import java.time.LocalDate;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -34,9 +36,12 @@ public class PageController{
             // BTN Search Flights
             if (origin != null && destination != null) {
                 logger.info("Searching flights from " + origin + " to " + destination);
-                
+                String datesUrl = String.format(ApiEndpoints.Flights.getDates, origin, destination);
+                LocalDate[] flightDates = restTemplate.getForObject(datesUrl, LocalDate[].class);
+                model.addAttribute("flightDates", flightDates);
             }
 
+            // Return Thymeleaf models
             model.addAttribute("airports", airports);
             model.addAttribute("origin", origin);
             model.addAttribute("destination", destination);
