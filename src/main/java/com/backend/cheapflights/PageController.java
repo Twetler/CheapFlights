@@ -38,6 +38,8 @@ public class PageController{
                 logger.info("Searching flights from " + origin + " to " + destination);
                 String datesUrl = String.format(ApiEndpoints.Flights.getDates, origin, destination);
                 LocalDate[] flightDates = restTemplate.getForObject(datesUrl, LocalDate[].class);
+                Integer datesSize = flightDates.length;
+                logger.info("Dates returned: " + datesSize);
                 model.addAttribute("flightDates", flightDates);
             }
 
