@@ -9,6 +9,8 @@ public class ApiEndpoints {
 
     public static class Flights {
         // %s - Origin and Destination respectively
-        public static final String getDates = "https://www.ryanair.com/api/farfnd/v4/oneWayFares/%s/%s/availabilities";
+        public static final String getDates = base_url + "/farfnd/v4/oneWayFares/%s/%s/availabilities";
+        // Flight date, destination, origin, in order
+        public static final String getAvailability = base_url + "/booking/v4/en-gb/availability?DateOut=%s&Destination=%s&Origin=%s&ToUs=AGREED";
     }
 }

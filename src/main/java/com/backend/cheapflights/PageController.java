@@ -38,9 +38,11 @@ public class PageController{
                 logger.info("Searching flights from " + origin + " to " + destination);
                 String datesUrl = String.format(ApiEndpoints.Flights.getDates, origin, destination);
                 LocalDate[] flightDates = restTemplate.getForObject(datesUrl, LocalDate[].class);
-                Integer datesSize = flightDates.length;
+                
+                Integer datesSize = (flightDates != null) ? flightDates.length: 0;
                 logger.info("Dates returned: " + datesSize);
-                model.addAttribute("flightDates", flightDates);
+                model.addAttribute("flightDates", flightDates);    
+                logger.error("No flight for the origin/destination chosen.");
             }
 
             // Return Thymeleaf models
